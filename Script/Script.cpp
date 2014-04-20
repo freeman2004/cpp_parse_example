@@ -559,7 +559,19 @@ string errors[] = {" ", "1 script object is null",
 		"3 syntax error for function definition",
 		"4 if-statement syntax error",
 		"5 while-statement syntax error" };
+
+/**************************************************************************/
+/*! \fn bool Script::load(string filename)
+ **************************************************************************
+ *  \brief Load File
+ *  \param[in] File Name
+ *  \param[out] Load File successful or not
+ *  \return True/False
+ **************************************************************************/
 bool Script::load(string filename) {
+/**
+* extensionIndex Find the first dot in the file name
+*/
 	int extensionIndex = filename.find_first_of(".");
 	/**
 	 * -force scs extension
@@ -578,6 +590,10 @@ bool Script::load(string filename) {
 		ScriptError::msg("script file failed to load, no file extension provided");
 		return false;
 	}
+
+/**
+* Read File
+*/
 	ifstream input;
 	input.open(filename.c_str());
 
@@ -590,6 +606,10 @@ bool Script::load(string filename) {
 		string line;
 		int ret=0;
 		while(!input.eof()){
+/**
+* getline(input, line);
+* Read the input file line by line
+*/ 
 			getline(input, line);
 
 			//clean up line a little,

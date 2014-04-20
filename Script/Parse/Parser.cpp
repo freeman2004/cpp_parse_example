@@ -534,7 +534,14 @@ int Parser::compiler(Script* script, Tokens& token, int rCount){
 	return 0;
 }
 
-
+/**************************************************************************/
+/*! \fn int Parser::compile(Script* script, string exp)
+ **************************************************************************
+ *  \brief Make Image
+ *  \param[in] Script pointer
+ *  \param[in] String
+ *  \return True/False
+ **************************************************************************/
 int Parser::compile(Script* script, string exp) {
 	if(script == NULL){
 		Tokens::stdError("compile expression, script pointer is null");
